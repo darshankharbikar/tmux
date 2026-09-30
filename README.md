@@ -1,4 +1,89 @@
 # tmux Cheat Sheet
+- tmux is a terminal multiplexer: it lets you run multiple terminal sessions inside one terminal, detach from them, and reconnect later.
+- It’s especially useful over SSH because your processes keep running after you disconnect.
+  
+## Install tmux on Ubuntu
+
+Since you're using Ubuntu:
+
+```bash
+sudo apt update
+sudo apt install tmux
+```
+
+Verify:
+
+```bash
+tmux -V
+```
+
+Expected:
+
+```text
+tmux 3.x
+```
+
+### Start tmux
+
+```bash
+tmux
+```
+
+You should now be inside a tmux session.
+
+Check:
+
+```bash
+echo $TMUX
+```
+
+If it prints a path such as:
+
+```text
+/tmp/tmux-1000/default,...
+```
+
+you are running inside tmux.
+
+### Create a named session
+
+I recommend naming sessions for your development work:
+
+```bash
+tmux new -s yocto
+```
+
+Detach:
+
+```text
+Ctrl-b d
+```
+
+Reattach:
+
+```bash
+tmux attach -t yocto
+```
+
+List sessions:
+
+```bash
+tmux ls
+```
+
+### Uninstall
+
+If you ever want to remove it:
+
+```bash
+sudo apt remove tmux
+```
+
+To also remove its configuration files:
+
+```bash
+sudo apt purge tmux
+```
 
 ## 1. Start / Manage Sessions
 
